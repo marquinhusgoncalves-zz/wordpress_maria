@@ -30,7 +30,7 @@ nav {
 nav ul li {
   display: inline-block;
   list-style: none;
-  padding: 0 7px;
+  padding: 0 10px;
 }
 nav ul li a {
   font-size: 16px;
@@ -92,6 +92,27 @@ nav ul li a:hover {
   margin-top: 37px;
 }
 
+.sub-menu {
+  position: absolute;
+  top: 80px;
+  margin-left: -143px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.5s,opacity 0.5s linear;
+}
+
+nav li.menu-item-13:hover .sub-menu {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+nav.sidebar li.menu-item-13:hover .sub-menu {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
 /*INDEX*/
 #home {
   background: url("../maria-theme/img/home.jpg") no-repeat center center fixed;
@@ -105,8 +126,8 @@ nav ul li a:hover {
   /*Css IE não use mer#^@%#*/
   -o-background-size: cover;
   /*Css Opera*/
-  min-height: 640px;
-  height: 100%;
+  min-height: 700px;
+  height: auto;
 }
 #home h1 {
   text-align: center;
@@ -123,6 +144,221 @@ nav ul li a:hover {
   margin-top: 50px;
 }
 
+/*AMARIA*/
+.amaria {
+  background: url("../maria-theme/img/amaria.jpg") no-repeat center center fixed;
+  background-size: cover;
+  /*Css padrão*/
+  -webkit-background-size: cover;
+  /*Css safari e chrome*/
+  -moz-background-size: cover;
+  /*Css firefox*/
+  -ms-background-size: cover;
+  /*Css IE não use mer#^@%#*/
+  -o-background-size: cover;
+  /*Css Opera*/
+  min-height: 700px;
+  height: auto;
+}
+
+.amaria-text {
+  color: white;
+  width: 275px;
+}
+.amaria-text h2, .amaria-text h3 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.amaria-text p {
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+/*BRIGADEIROS*/
+.brigadeiros-col-1 {
+  background: url("../maria-theme/img/brigadeiros.jpg") no-repeat;
+  background-size: cover;
+  /*Css padrão*/
+  -webkit-background-size: cover;
+  /*Css safari e chrome*/
+  -moz-background-size: cover;
+  /*Css firefox*/
+  -ms-background-size: cover;
+  /*Css IE não use mer#^@%#*/
+  -o-background-size: cover;
+  /*Css Opera*/
+  min-height: 700px;
+  height: auto;
+}
+
+.brigadeiros-col-2 {
+  background-color: #503236;
+  min-height: 700px;
+  height: auto;
+}
+
+.brigadeiros-text {
+  color: #fff;
+  margin-left: 15px;
+}
+.brigadeiros-text p {
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+.brigadeiros-text ul {
+  padding-left: 15px;
+}
+
+.brigadeiros-title {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 50px 0;
+}
+.brigadeiros-title img {
+  margin-right: 10px;
+}
+.brigadeiros-title h2 {
+  margin-top: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/*COMPOTINHAS*/
+.compotinhas-col-1 {
+  background: url("../maria-theme/img/compotinhas.jpg") no-repeat;
+  background-size: cover;
+  /*Css padrão*/
+  -webkit-background-size: cover;
+  /*Css safari e chrome*/
+  -moz-background-size: cover;
+  /*Css firefox*/
+  -ms-background-size: cover;
+  /*Css IE não use mer#^@%#*/
+  -o-background-size: cover;
+  /*Css Opera*/
+  min-height: 700px;
+  height: auto;
+}
+
+.compotinhas-col-2 {
+  background-color: #c59593;
+  min-height: 700px;
+  height: auto;
+}
+
+.compotinhas-text {
+  color: #fff;
+  margin-left: 15px;
+  position: relative;
+  width: 310px;
+  min-height: 480px;
+}
+.compotinhas-text p {
+  margin-bottom: 0;
+}
+.compotinhas-text p:nth-child(2) {
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+.compotinhas-text ul {
+  padding-left: 15px;
+  margin-top: 20px;
+}
+.compotinhas-text > img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.compotinhas-title {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 50px 0;
+}
+.compotinhas-title img {
+  margin-right: 10px;
+}
+.compotinhas-title h2 {
+  margin-top: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/*CUPCAKES*/
+.cupcakes-col-1 {
+  background: url("../maria-theme/img/cupcakes.jpg") no-repeat;
+  background-size: cover;
+  /*Css padrão*/
+  -webkit-background-size: cover;
+  /*Css safari e chrome*/
+  -moz-background-size: cover;
+  /*Css firefox*/
+  -ms-background-size: cover;
+  /*Css IE não use mer#^@%#*/
+  -o-background-size: cover;
+  /*Css Opera*/
+  min-height: 700px;
+  height: auto;
+}
+
+.cupcakes-col-2 {
+  background-color: #bcb4a2;
+  min-height: 700px;
+  height: auto;
+}
+
+.cupcakes-text {
+  color: #503236;
+  margin-left: 15px;
+  position: relative;
+  width: 500px;
+  min-height: 690px;
+}
+.cupcakes-text p {
+  margin-bottom: 0;
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+.cupcakes-text ul {
+  padding-left: 15px;
+}
+.cupcakes-text > img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.cupcakes-title {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 50px 0;
+}
+.cupcakes-title img {
+  margin-right: 10px;
+}
+.cupcakes-title h2 {
+  margin-top: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
 /*FOOTER*/
 footer {
   background-color: #bcb4a2;
@@ -130,6 +366,7 @@ footer {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  clear: both;
 }
 footer div {
   display: -webkit-flex;

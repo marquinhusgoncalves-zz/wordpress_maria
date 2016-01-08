@@ -9,6 +9,7 @@ Description: Tema exclusivo Maria ao Leite.
 $color: #503236;
 $color1: #c59593;
 $color2: #bcb4a2;
+$color3: #fff;
 
 /*MIXINS*/
 @mixin thumb-home($margtop) {
@@ -17,7 +18,32 @@ $color2: #bcb4a2;
 	text-transform: uppercase;
 	margin-top: $margtop;	
 }
-  
+
+@mixin img-bg-doces {
+	background-size: cover; /*Css padrão*/
+	-webkit-background-size: cover; /*Css safari e chrome*/
+	-moz-background-size: cover; /*Css firefox*/
+	-ms-background-size: cover; /*Css IE não use mer#^@%#*/
+	-o-background-size: cover; /*Css Opera*/
+	min-height: 700px;
+	height: auto;
+}
+
+@mixin base-text-doces ($color-text) {
+	color: $color-text;
+	margin-left: 15px;
+}
+@mixin title-doces {
+	display: flex;
+	align-items: center;
+	padding: 50px 0;
+}
+@mixin title-doces-h2 {
+	margin-top: 10px;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
 /*HEADER*/
 body {
 	position: absolute;
@@ -29,29 +55,29 @@ header {
 	height: 110px;
 	background-color: #fff;
 
-		img {
-			margin-top: 17px;
-		}
+	img {
+		margin-top: 17px;
+	}
 }
 /*MENU*/
 nav {
 	float: right;
 
-		ul li {
-			display: inline-block;
-			list-style: none;
-			padding: 0 7px;
+	ul li {
+		display: inline-block;
+		list-style: none;
+		padding: 0 10px;
 
-			a {
-				font-size: 16px;
-				color: $color;
-				padding: 6px;
-			}
-			a:hover {
-				color: $color1;
-				text-decoration: none;
-			}
+		a {
+			font-size: 16px;
+			color: $color;
+			padding: 6px;
 		}
+		a:hover {
+			color: $color1;
+			text-decoration: none;
+		}
+	}
 }
 .fa-stack {
 	color: $color;
@@ -95,16 +121,28 @@ nav {
 #menu-menu-1 {
 	margin-top: 37px;
 }
+.sub-menu {
+	position: absolute;
+	top: 80px;
+	margin-left: -143px;
+	visibility:hidden;
+	opacity:0;
+	transition: visibility 0s linear 0.5s,opacity 0.5s linear;
+}
+nav li.menu-item-13:hover .sub-menu {
+	visibility:visible;
+	opacity:1;
+	transition-delay:0s;
+}
+nav.sidebar li.menu-item-13:hover .sub-menu {
+	visibility:visible;
+	opacity:1;
+	transition-delay:0s;
+}
 /*INDEX*/
 #home {
 	background: url("../maria-theme/img/home.jpg") no-repeat center center fixed;
-	background-size: cover; /*Css padrão*/
-	-webkit-background-size: cover; /*Css safari e chrome*/
-	-moz-background-size: cover; /*Css firefox*/
-	-ms-background-size: cover; /*Css IE não use mer#^@%#*/
-	-o-background-size: cover; /*Css Opera*/
-    min-height: 640px;
-    height: 100%;
+	@include img-bg-doces;
 	h1 {
 		@include thumb-home(100px);
 		font-size: 30px;
@@ -113,12 +151,139 @@ nav {
 .thumb {
 	@include thumb-home(50px);
 }
+/*AMARIA*/
+.amaria{
+	background: url("../maria-theme/img/amaria.jpg") no-repeat center center fixed;
+	@include img-bg-doces;
+}
+.amaria-text {
+	color: white;
+	width: 275px;
+	h2, h3 {
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	p {
+		margin-top: 30px;
+		font-size: 18px;
+	}
+}
+/*BRIGADEIROS*/
+.brigadeiros-col-1 {
+	background: url("../maria-theme/img/brigadeiros.jpg") no-repeat;
+	@include img-bg-doces;
+}
+.brigadeiros-col-2 {
+	background-color: $color;
+	min-height: 700px;
+	height: auto;
+}
+.brigadeiros-text {
+	@include base-text-doces($color3);
+	p {
+		text-transform: uppercase;
+		margin-bottom: 0;
+	}
+	ul {
+		padding-left: 15px;
+	}
+}
+.brigadeiros-title {
+	@include title-doces;
+	img {
+		margin-right: 10px
+	}
+	h2 {
+		@include title-doces-h2;
+	}
+}
+/*COMPOTINHAS*/
+.compotinhas-col-1 {
+	background: url("../maria-theme/img/compotinhas.jpg") no-repeat;
+	@include img-bg-doces;
+}
+.compotinhas-col-2 {
+	background-color: $color1;
+	min-height: 700px;
+	height: auto;
+}
+.compotinhas-text {
+	@include base-text-doces($color3);
+	position: relative;
+	width: 310px;
+    min-height: 480px;
+	p {
+		margin-bottom: 0;
+	}
+	p:nth-child(2) {
+		text-transform: uppercase;
+		font-size: 18px;
+		letter-spacing: 2px;
+	}
+	ul {
+		padding-left: 15px;
+		margin-top: 20px;
+	}
+	> img {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+}
+.compotinhas-title {
+	@include title-doces;
+	img {
+		margin-right: 10px
+	}
+	h2 {
+		@include title-doces-h2;
+	}
+}
+/*CUPCAKES*/
+.cupcakes-col-1 {
+	background: url("../maria-theme/img/cupcakes.jpg") no-repeat;
+	@include img-bg-doces;
+}
+.cupcakes-col-2 {
+	background-color: $color2;
+	min-height: 700px;
+	height: auto;
+}
+.cupcakes-text {
+	@include base-text-doces($color);
+	position: relative;
+	width: 500px;
+    min-height: 690px;
+	p {
+		margin-bottom: 0;
+		text-transform: uppercase;
+		font-size: 18px;
+		letter-spacing: 2px;
+	}
+	ul {
+		padding-left: 15px;
+	}
+	> img {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+}
+.cupcakes-title {
+	@include title-doces;
+	img {
+		margin-right: 10px
+	}
+	h2 {
+		@include title-doces-h2;
+	}
+}
 /*FOOTER*/
 footer {
 	background-color: $color2;
 	min-height: 60px;
 	display: flex;
-
+	clear: both;
 	div {
 		display: flex;
 		justify-content: space-between;
