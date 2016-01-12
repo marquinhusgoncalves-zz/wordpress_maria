@@ -63,6 +63,17 @@ nav ul li a:hover {
   display: none;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.75);
 }
+.sidebar ul {
+  text-align: center;
+  padding-left: 0;
+}
+.sidebar ul li {
+  display: block;
+  margin-bottom: 15px;
+}
+.sidebar ul li a {
+  font-size: 20px;
+}
 
 .toggle {
   transition: all .15s ease;
@@ -80,7 +91,8 @@ nav ul li a:hover {
 }
 
 #sidebartoggler:checked + .toggle {
-  right: 190px;
+  right: 180px;
+  top: 10px;
   color: black;
 }
 
@@ -94,11 +106,32 @@ nav ul li a:hover {
 
 .sub-menu {
   position: absolute;
-  top: 80px;
-  margin-left: -143px;
+  top: 72px;
+  margin-left: -62px;
+  z-index: 99999;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s linear 0.5s,opacity 0.5s linear;
+}
+.sub-menu li {
+  display: block;
+  padding: 5px 20px;
+  margin: 3px;
+}
+.sub-menu li:nth-child(1) {
+  background-color: #bcb4a2;
+}
+.sub-menu li:nth-child(2) {
+  background-color: #c59593;
+}
+.sub-menu li:nth-child(3) {
+  background-color: #503236;
+}
+.sub-menu li a {
+  color: #fff;
+}
+.sub-menu li a:hover {
+  color: #f2f1e7;
 }
 
 nav li.menu-item-13:hover .sub-menu {
@@ -126,7 +159,7 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
   /*Css IE não use mer#^@%#*/
   -o-background-size: cover;
   /*Css Opera*/
-  min-height: 700px;
+  min-height: 800px;
   height: auto;
 }
 #home h1 {
@@ -157,7 +190,7 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
   /*Css IE não use mer#^@%#*/
   -o-background-size: cover;
   /*Css Opera*/
-  min-height: 700px;
+  min-height: 800px;
   height: auto;
 }
 
@@ -187,19 +220,21 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
   /*Css IE não use mer#^@%#*/
   -o-background-size: cover;
   /*Css Opera*/
-  min-height: 700px;
+  min-height: 800px;
   height: auto;
 }
 
 .brigadeiros-col-2 {
   background-color: #503236;
-  min-height: 700px;
+  min-height: 800px;
   height: auto;
 }
 
 .brigadeiros-text {
   color: #fff;
   margin-left: 15px;
+  position: relative;
+  width: 310px;
 }
 .brigadeiros-text p {
   text-transform: uppercase;
@@ -207,6 +242,24 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
 }
 .brigadeiros-text ul {
   padding-left: 15px;
+}
+.brigadeiros-text ul:last-of-type {
+  margin-bottom: 0;
+}
+.brigadeiros-text > img {
+  position: absolute;
+}
+.brigadeiros-text > img:nth-of-type(1) {
+  top: 200px;
+  right: 0;
+}
+.brigadeiros-text > img:nth-of-type(2) {
+  top: 280px;
+  right: -180px;
+}
+.brigadeiros-text > img:nth-of-type(3) {
+  top: 620px;
+  right: -50px;
 }
 
 .brigadeiros-title {
@@ -241,13 +294,13 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
   /*Css IE não use mer#^@%#*/
   -o-background-size: cover;
   /*Css Opera*/
-  min-height: 700px;
+  min-height: 800px;
   height: auto;
 }
 
 .compotinhas-col-2 {
   background-color: #c59593;
-  min-height: 700px;
+  min-height: 800px;
   height: auto;
 }
 
@@ -308,13 +361,13 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
   /*Css IE não use mer#^@%#*/
   -o-background-size: cover;
   /*Css Opera*/
-  min-height: 700px;
+  min-height: 800px;
   height: auto;
 }
 
 .cupcakes-col-2 {
   background-color: #bcb4a2;
-  min-height: 700px;
+  min-height: 800px;
   height: auto;
 }
 
@@ -359,31 +412,108 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
   letter-spacing: 2px;
 }
 
+/*CONTATO*/
+.contato {
+  background-color: #f0eed8;
+  background-image: radial-gradient(white 10%, transparent 10%), radial-gradient(white 10%, transparent 10%);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+.contato-img {
+  text-align: center;
+}
+.contato-img img {
+  display: inline-block;
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.form-control {
+  border: transparent;
+  border-radius: 0px;
+}
+
+.contato label {
+  color: #503236;
+}
+
+textarea.form-control {
+  height: 213px;
+}
+
+.botao_form {
+  float: right;
+}
+
+.contato button {
+  color: #fff;
+  background-color: #503236;
+  border-color: transparent;
+  border-radius: 0px;
+  margin-bottom: 50px;
+}
+
+.contato button:hover {
+  background-color: #c59593;
+  border-color: transparent;
+}
+
 /*FOOTER*/
 footer {
   background-color: #bcb4a2;
   min-height: 60px;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   clear: both;
-}
-footer div {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
 }
-footer div p, footer div a {
+@media screen and (min-width: 480px) {
+  footer {
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+  }
+}
+footer p, footer a {
   color: #fff;
   font-size: 24px;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-footer div a:hover {
+@media screen and (max-width: 320px) {
+  footer p, footer a {
+    font-size: 22px;
+  }
+}
+footer a:hover {
   color: #503236;
   text-decoration: none;
+}
+
+/*MEDIAQUERY*/
+@media screen and (max-width: 320px) {
+  .amaria-text {
+    width: 185px;
+  }
+
+  .compotinhas-text {
+    width: 290px;
+  }
+
+  .compotinhas-title h2 {
+    font-size: 26px;
+  }
 }

@@ -30,7 +30,7 @@
 				<li>Morango</li>
 				<li>Nozes</li>
 			</ul>
-			<img src="<?php bloginfo('stylesheet_directory');?>/img/cupcakes-only.png" alt="Imagem Cupcake">
+			<img src="<?php bloginfo('stylesheet_directory');?>/img/cupcakes-only-1.png" alt="Imagem Cupcake">
 		</div>
 	</div>
 </div>

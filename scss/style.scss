@@ -25,7 +25,13 @@ $color3: #fff;
 	-moz-background-size: cover; /*Css firefox*/
 	-ms-background-size: cover; /*Css IE não use mer#^@%#*/
 	-o-background-size: cover; /*Css Opera*/
-	min-height: 700px;
+	min-height: 800px;
+	height: auto;
+}
+
+@mixin text-bg-doces ($color-bg) {
+	background-color: $color-bg;
+	min-height: 800px;
 	height: auto;
 }
 
@@ -97,6 +103,17 @@ nav {
 	z-index: 90;
 	display: none;
 	box-shadow: 0px 2px 12px rgba(0,0,0,0.75);
+	ul {
+		text-align: center;
+		padding-left: 0;
+		li {
+			display: block;
+			margin-bottom: 15px;
+			a{
+				font-size: 20px;
+			}
+		}
+	}
 }
 .toggle {
 	transition: all .15s ease;
@@ -112,7 +129,8 @@ nav {
 	display: none;
 }
 #sidebartoggler:checked + .toggle {
-	right: 190px;
+	right: 180px;
+	top: 10px;
 	color: black;
 }
 #sidebartoggler:checked ~ .sidebar {
@@ -123,11 +141,32 @@ nav {
 }
 .sub-menu {
 	position: absolute;
-	top: 80px;
-	margin-left: -143px;
+	top: 72px;
+	margin-left: -62px;
+	z-index: 99999;
 	visibility:hidden;
 	opacity:0;
 	transition: visibility 0s linear 0.5s,opacity 0.5s linear;
+	li {
+		display: block;
+		padding: 5px 20px;
+		margin: 3px;
+		&:nth-child(1) {
+			background-color: $color2;
+		}
+		&:nth-child(2) {
+			background-color: $color1;
+		}
+		&:nth-child(3) {
+			background-color: $color;
+		}
+		a {
+			color: $color3;
+			&:hover {
+				color: #f2f1e7;
+			}
+		}
+	}
 }
 nav li.menu-item-13:hover .sub-menu {
 	visibility:visible;
@@ -174,18 +213,36 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
 	@include img-bg-doces;
 }
 .brigadeiros-col-2 {
-	background-color: $color;
-	min-height: 700px;
-	height: auto;
+	@include text-bg-doces($color);
 }
 .brigadeiros-text {
 	@include base-text-doces($color3);
+	position: relative;
+	width: 310px;
 	p {
 		text-transform: uppercase;
 		margin-bottom: 0;
 	}
 	ul {
 		padding-left: 15px;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+	> img {
+		position: absolute;
+		&:nth-of-type(1) {
+			top: 200px;
+			right: 0;
+		}
+		&:nth-of-type(2) {
+			top: 280px;
+			right: -180px;
+		}
+		&:nth-of-type(3) {
+			top: 620px;
+			right: -50px;
+		}
 	}
 }
 .brigadeiros-title {
@@ -203,22 +260,20 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
 	@include img-bg-doces;
 }
 .compotinhas-col-2 {
-	background-color: $color1;
-	min-height: 700px;
-	height: auto;
+	@include text-bg-doces($color1);
 }
 .compotinhas-text {
 	@include base-text-doces($color3);
 	position: relative;
 	width: 310px;
-    min-height: 480px;
+	min-height: 480px;
 	p {
 		margin-bottom: 0;
-	}
-	p:nth-child(2) {
-		text-transform: uppercase;
-		font-size: 18px;
-		letter-spacing: 2px;
+		&:nth-child(2) {
+			text-transform: uppercase;
+			font-size: 18px;
+			letter-spacing: 2px;
+		}
 	}
 	ul {
 		padding-left: 15px;
@@ -245,15 +300,13 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
 	@include img-bg-doces;
 }
 .cupcakes-col-2 {
-	background-color: $color2;
-	min-height: 700px;
-	height: auto;
+	@include text-bg-doces($color2);
 }
 .cupcakes-text {
 	@include base-text-doces($color);
 	position: relative;
 	width: 500px;
-    min-height: 690px;
+	min-height: 690px;
 	p {
 		margin-bottom: 0;
 		text-transform: uppercase;
@@ -278,24 +331,83 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
 		@include title-doces-h2;
 	}
 }
+/*CONTATO*/
+.contato {
+	background-color: #f0eed8;
+	background-image: radial-gradient(white 10%, transparent 10%), radial-gradient(white 10%, transparent 10%);
+	background-size: 30px 30px;
+	background-position: 0 0, 15px 15px;
+}
+.contato-img {
+	text-align: center;
+	img {
+		display: inline-block;
+	}
+}
+.form-group {
+	margin-bottom: 0;
+}
+.form-control {
+	border: transparent;
+	border-radius: 0px;
+}
+.contato label {
+	color: $color;
+}
+textarea.form-control {
+	height: 213px;
+}
+.botao_form {
+	float: right;
+}
+.contato button {
+	color: $color3;
+	background-color: $color;
+	border-color: transparent;
+	border-radius: 0px;
+	margin-bottom: 50px;
+}
+.contato button:hover {
+	background-color: $color1;
+	border-color: transparent;
+}
 /*FOOTER*/
 footer {
 	background-color: $color2;
 	min-height: 60px;
-	display: flex;
 	clear: both;
-	div {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
 
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		@media screen and (min-width: 480px) {
+				justify-content: space-around;
+			}
+			
 		p, a {
 			color: #fff;
 			font-size: 24px;
+			align-items: center;
+			@media screen and (max-width: 320px) {
+				font-size: 22px;
+			}
 		}
 		a:hover {
 			color: $color;
 			text-decoration: none;
 		}
+	}
+
+/*MEDIAQUERY*/
+@media screen and (max-width: 320px) {
+	.amaria-text {
+		width: 185px;
+	}
+	.compotinhas-text {
+		width: 290px;
+	}
+	.compotinhas-title h2 {
+		font-size: 26px;
 	}
 }
