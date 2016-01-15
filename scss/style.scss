@@ -5,51 +5,9 @@ Author: Marcus Vinicius @marquinhusgonc;
 Description: Tema exclusivo Maria ao Leite.
 */
 
-/*VARIABLES*/
-$color: #503236;
-$color1: #c59593;
-$color2: #bcb4a2;
-$color3: #fff;
+@import '_variables.scss';
+@import '_mixins.scss';
 
-/*MIXINS*/
-@mixin thumb-home($margtop) {
-	text-align: center;
-	color: #fff;
-	text-transform: uppercase;
-	margin-top: $margtop;	
-}
-
-@mixin img-bg-doces {
-	background-size: cover; /*Css padrão*/
-	-webkit-background-size: cover; /*Css safari e chrome*/
-	-moz-background-size: cover; /*Css firefox*/
-	-ms-background-size: cover; /*Css IE não use mer#^@%#*/
-	-o-background-size: cover; /*Css Opera*/
-	min-height: 800px;
-	height: auto;
-}
-
-@mixin text-bg-doces ($color-bg) {
-	background-color: $color-bg;
-	min-height: 800px;
-	height: auto;
-}
-
-@mixin base-text-doces ($color-text) {
-	color: $color-text;
-	margin-left: 15px;
-}
-@mixin title-doces {
-	display: flex;
-	align-items: center;
-	padding: 50px 0;
-}
-@mixin title-doces-h2 {
-	margin-top: 10px;
-	text-transform: uppercase;
-	font-weight: bold;
-	letter-spacing: 2px;
-}
 /*HEADER*/
 body {
 	position: absolute;
@@ -66,9 +24,8 @@ header {
 	}
 }
 /*MENU*/
-nav {
+nav { /*configuração padrão para os 2 menus*/
 	float: right;
-
 	ul li {
 		display: inline-block;
 		list-style: none;
@@ -84,21 +41,52 @@ nav {
 			text-decoration: none;
 		}
 	}
+	li.menu-item-13 {
+		&:hover {
+			.sub-menu {
+				visibility:visible;
+				opacity:1;
+				transition-delay:0s;
+			}
+		}
+	}
 }
-.fa-stack {
-	color: $color;
+.sub-menu { /*configuração padrão para os 2 sub-menus*/
+	position: absolute;
+	top: 110px;
+	margin-left: -62px;
+	z-index: 99999;
+	visibility:hidden;
+	opacity:0;
+	transition: visibility 0s linear 0.5s,opacity 1s linear;
+	li {
+		display: block;
+		padding: 13px 20px;
+		&:nth-child(1) {
+			background-color: darken($color, 5%);
+		}
+		&:nth-child(2) {
+			background-color: darken($color1, 5%);
+		}
+		&:nth-child(3) {
+			background-color: darken($color2, 5%);
+		}
+		a {
+			color: $color3;
+			&:hover {
+				color: #f2f1e7;
+			}
+		}
+	}
 }
-.fa-stack:hover {
-	color: $color1;
-}
-.sidebar {
+.sidebar { /*configuração apenas para o menu mobile*/
 	transition: all .15s ease;
 	position: fixed;
-	top: 15px;
-	bottom: 0;
-	right: -240px;
-	width: 220px;
-	padding: 100px 30px;
+	top: 0;
+	bottom: -10px;
+	right: -280px;
+	width: 280px;
+	padding: 80px 30px;
 	background: $color2;
 	z-index: 90;
 	display: none;
@@ -108,10 +96,18 @@ nav {
 		padding-left: 0;
 		li {
 			display: block;
-			margin-bottom: 15px;
+			margin: 10px 0	;
 			a{
 				font-size: 20px;
 			}
+		}
+	}
+	li.menu-item-13 {
+		.sub-menu {
+			position: static;
+			margin-left: 0;
+			visibility:visible;
+			opacity: 1;
 		}
 	}
 }
@@ -129,9 +125,9 @@ nav {
 	display: none;
 }
 #sidebartoggler:checked + .toggle {
-	right: 180px;
+	right: 240px;
 	top: 10px;
-	color: black;
+	color: $color;
 }
 #sidebartoggler:checked ~ .sidebar {
 	right: 0px;
@@ -139,44 +135,11 @@ nav {
 #menu-menu-1 {
 	margin-top: 37px;
 }
-.sub-menu {
-	position: absolute;
-	top: 72px;
-	margin-left: -62px;
-	z-index: 99999;
-	visibility:hidden;
-	opacity:0;
-	transition: visibility 0s linear 0.5s,opacity 0.5s linear;
-	li {
-		display: block;
-		padding: 5px 20px;
-		margin: 3px;
-		&:nth-child(1) {
-			background-color: $color2;
-		}
-		&:nth-child(2) {
-			background-color: $color1;
-		}
-		&:nth-child(3) {
-			background-color: $color;
-		}
-		a {
-			color: $color3;
-			&:hover {
-				color: #f2f1e7;
-			}
-		}
-	}
+.fa-stack {
+	color: $color;
 }
-nav li.menu-item-13:hover .sub-menu {
-	visibility:visible;
-	opacity:1;
-	transition-delay:0s;
-}
-nav.sidebar li.menu-item-13:hover .sub-menu {
-	visibility:visible;
-	opacity:1;
-	transition-delay:0s;
+.fa-stack:hover {
+	color: $color1;
 }
 /*INDEX*/
 #home {
@@ -189,6 +152,13 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
 }
 .thumb {
 	@include thumb-home(50px);
+	a {
+		color: $color3;
+		&:hover {
+			color: $color1;
+			text-decoration: none;
+		}
+	}
 }
 /*AMARIA*/
 .amaria{
@@ -198,6 +168,9 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
 .amaria-text {
 	color: white;
 	width: 275px;
+	@media screen and (max-width: 320px) {
+		width: 185px;
+	}
 	h2, h3 {
 		font-weight: bold;
 		text-transform: uppercase;
@@ -217,8 +190,6 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
 }
 .brigadeiros-text {
 	@include base-text-doces($color3);
-	position: relative;
-	width: 310px;
 	p {
 		text-transform: uppercase;
 		margin-bottom: 0;
@@ -233,15 +204,15 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
 		position: absolute;
 		&:nth-of-type(1) {
 			top: 200px;
-			right: 0;
+			right: -11px;
 		}
 		&:nth-of-type(2) {
-			top: 280px;
-			right: -180px;
+			top: 380px;
+			right: 0;
 		}
 		&:nth-of-type(3) {
 			top: 620px;
-			right: -50px;
+			right: -3px;
 		}
 	}
 }
@@ -264,9 +235,6 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
 }
 .compotinhas-text {
 	@include base-text-doces($color3);
-	position: relative;
-	width: 310px;
-	min-height: 480px;
 	p {
 		margin-bottom: 0;
 		&:nth-child(2) {
@@ -278,10 +246,13 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
 	ul {
 		padding-left: 15px;
 		margin-top: 20px;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
 	}
 	> img {
 		position: absolute;
-		bottom: 0;
+		top: 350px;
 		right: 0;
 	}
 }
@@ -304,9 +275,6 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
 }
 .cupcakes-text {
 	@include base-text-doces($color);
-	position: relative;
-	width: 500px;
-	min-height: 690px;
 	p {
 		margin-bottom: 0;
 		text-transform: uppercase;
@@ -315,11 +283,18 @@ nav.sidebar li.menu-item-13:hover .sub-menu {
 	}
 	ul {
 		padding-left: 15px;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
 	}
 	> img {
 		position: absolute;
-		bottom: 0;
-		right: 0;
+		top: 360px;
+		right: -200px;
+		@media screen and (max-width: 320px) {
+			width: 230px;
+			right: -20px;
+		}
 	}
 }
 .cupcakes-title {
@@ -376,38 +351,23 @@ footer {
 	background-color: $color2;
 	min-height: 60px;
 	clear: both;
-
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	@media screen and (min-width: 480px) {
+		justify-content: space-around;
+	}
+	p, a {
+		color: #fff;
+		font-size: 24px;
 		align-items: center;
-		@media screen and (min-width: 480px) {
-				justify-content: space-around;
-			}
-			
-		p, a {
-			color: #fff;
-			font-size: 24px;
-			align-items: center;
-			@media screen and (max-width: 320px) {
-				font-size: 22px;
-			}
-		}
-		a:hover {
-			color: $color;
-			text-decoration: none;
+		@media screen and (max-width: 320px) {
+			font-size: 22px;
 		}
 	}
-
-/*MEDIAQUERY*/
-@media screen and (max-width: 320px) {
-	.amaria-text {
-		width: 185px;
-	}
-	.compotinhas-text {
-		width: 290px;
-	}
-	.compotinhas-title h2 {
-		font-size: 26px;
+	a:hover {
+		color: $color;
+		text-decoration: none;
 	}
 }

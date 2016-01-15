@@ -23,7 +23,7 @@
 				<li>Nutella</li>
 				<li>Ferrero</li>
 			</ul>
-			<img src="<?php bloginfo('stylesheet_directory');?>/img/compotinhas-only-1.png" alt="Imagem Compotinha">
+			<img src="<?php bloginfo('stylesheet_directory');?>/img/compotinha-amendoa.png" alt="Imagem Compotinha">
 		</div>
 	</div>
 </section>

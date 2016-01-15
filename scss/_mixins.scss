@@ -1,0 +1,54 @@
+/*MIXINS*/
+@mixin thumb-home($margtop) {
+	text-align: center;
+	color: #fff;
+	text-transform: uppercase;
+	margin-top: $margtop;	
+}
+
+@mixin img-bg-doces {
+	background-size: cover; /*Css padrão*/
+	-webkit-background-size: cover; /*Css safari e chrome*/
+	-moz-background-size: cover; /*Css firefox*/
+	-ms-background-size: cover; /*Css IE não use mer#^@%#*/
+	-o-background-size: cover; /*Css Opera*/
+	min-height: 800px;
+	@media screen and (max-width: 320px) {
+		min-height: 340px;
+	}
+	height: auto;
+}
+
+@mixin text-bg-doces ($color-bg) {
+	background-color: $color-bg;
+	min-height: 800px;
+	@media screen and (max-width: 320px) {
+		min-height: 510px;
+	}
+	height: auto;
+}
+
+@mixin base-text-doces ($color-text) {
+	color: $color-text;
+	margin-left: 15px;
+	padding-bottom: 40px;
+	position: relative;
+	width: 310px;
+	@media screen and (max-width: 320px) {
+		width: 270px;
+	}
+}
+@mixin title-doces {
+	display: flex;
+	align-items: center;
+	padding: 50px 0;
+}
+@mixin title-doces-h2 {
+	margin-top: 10px;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 2px;
+	@media screen and (max-width: 320px) {
+		font-size: 26px;
+	}
+}

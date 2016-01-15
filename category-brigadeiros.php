@@ -48,9 +48,9 @@
 				<li>Damasco</li>
 				<li>Baunilha</li>
 			</ul>
-			<img src="<?php bloginfo('stylesheet_directory');?>/img/Briga- MariaaoLeite.png" alt="Imagem Brigadeiro">
-			<img src="<?php bloginfo('stylesheet_directory');?>/img/Briga-Amendoa.png" alt="Imagem Brigadeiro">
-			<img src="<?php bloginfo('stylesheet_directory');?>/img/Briga-romeujulieta.png" alt="Imagem Brigadeiro">
+			<img src="<?php bloginfo('stylesheet_directory');?>/img/briga-mariaaoleite.png" alt="Imagem Brigadeiro">
+			<img src="<?php bloginfo('stylesheet_directory');?>/img/briga-amendoa.png" alt="Imagem Brigadeiro">
+			<img src="<?php bloginfo('stylesheet_directory');?>/img/briga-romeujulieta.png" alt="Imagem Brigadeiro">
 		</div>
 	</div>
 </section>
