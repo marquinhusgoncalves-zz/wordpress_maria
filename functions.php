@@ -25,4 +25,7 @@ function menu_setup() {
 
 }
 add_action( 'after_setup_theme', 'menu_setup' );
+
+include_once('functions/personalizacao.php');
+
 ?>
